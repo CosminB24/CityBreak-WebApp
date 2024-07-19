@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Weather</title>
+</head>
+<body>
+    <h1>Edit Weather</h1>
+    <form action="{{ url_for('update_weather', weather_id=weather.id) }}" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" value="{{ weather.city }}"><br><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" value="{{ weather.date }}"><br><br>
+        <label for="temperature">Temperature:</label><br>
+        <input type="text" id="temperature" name="temperature" value="{{ weather.temperature }}"><br><br>
+        <label for="temperature">Temperature:</label><br>
+        <input type="text" id="humidity" name="humidity" value="{{ weather.humidity }}"><br><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description" value="{{ weather.description }}"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

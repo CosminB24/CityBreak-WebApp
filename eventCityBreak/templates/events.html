@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body>
+    <h1>Events</h1>
+    {% if events %}
+        <table border="1">
+            <tr>
+                <th>City</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.city }}</td>
+                <td>{{ event.date }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.description }}</td>
+                <td>
+                    <form action="{{ url_for('edit_event', event_id=event.id) }}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form action="/event/delete/{{ event.id }}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No events found for the specified city.</p>
+    {% endif %}
+<br>
+<button onclick="window.location.href='/event/create'">Create an event</button>
+<button onclick="window.location.href='/previous_events'">Previous events</button>
+<button onclick="window.location.href='/search_events'">Back to city selection</button>
+<button onclick="window.location.href='/'">Back to home page</button>
+</body>
+</html>

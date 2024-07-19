@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Event</title>
+</head>
+<body>
+    <h1>Edit Event</h1>
+    <form action="{{ url_for('update_event', event_id=event.id) }}" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" value="{{ event.city }}"><br><br>
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" value="{{ event.date }}"><br><br>
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ event.title }}"><br><br>
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description" value="{{ event.description }}"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Weather</title>
+</head>
+<body>
+    <h1>Create Weather</h1>
+    <form action="/weather/create" method="post">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="temperature">Temperature:</label>
+        <input type="text" id="temperature" name="temperature" required><br><br>
+
+        <label for="humidity">Humidity:</label>
+        <input type="text" id="humidity" name="humidity" required><br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Create Weather">
+    </form>
+</body>
+</html>
