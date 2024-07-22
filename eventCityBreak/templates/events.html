@@ -22,7 +22,7 @@
                 <td>{{ event.title }}</td>
                 <td>{{ event.description }}</td>
                 <td>
-                    <form action="{{ url_for('edit_event', event_id=event.id) }}" method="get">
+                    <form action="{{ url_for('update_event', event_id=event.id) }}" method="get">
                         <button type="submit">Edit</button>
                     </form>
                     <form action="/event/delete/{{ event.id }}" method="post" style="display:inline;">
