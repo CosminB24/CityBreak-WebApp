@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Citybreak Application</title>
+    <title>Gateway Service</title>
 </head>
 <body>
-    <h1>Welcome to Citybreak Application</h1>
-    <button onclick="window.location.href='/search_events'">Events</button>
-    <button onclick="window.location.href='/search_weather'">Weather</button>
+    <h1>Welcome to the Gateway Service</h1>
+    <a href="{{ url_for('search') }}">Search Events and Weather</a>
 </body>
 </html>

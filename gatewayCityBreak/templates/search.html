@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Events and Weather</title>
+</head>
+<body>
+    <h1>Search for Events and Weather</h1>
+    <form method="get" action="{{ url_for('search') }}">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"><br><br>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

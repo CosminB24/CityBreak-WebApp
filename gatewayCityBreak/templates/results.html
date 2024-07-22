@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for {{ city }} on {{ date }}</h1>
+
+    <h2>Weather</h2>
+    {% if weather %}
+        <table border="1">
+            <tr>
+                <th>City</th>
+                <th>Date</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+            </tr>
+            {% for w in weather %}
+                <tr>
+                    <td>{{ w.city }}</td>
+                    <td>{{ w.date }}</td>
+                    <td>{{ w.temperature }}°C</td>
+                    <td>{{ w.humidity }}%</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No weather data found.</p>
+    {% endif %}
+
+    <h2>Events</h2>
+    {% if events %}
+        <table border="1">
+            <tr>
+                <th>City</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Description</th>
+            </tr>
+            {% for e in events %}
+                <tr>
+                    <td>{{ e.city }}</td>
+                    <td>{{ e.date }}</td>
+                    <td>{{ e.title }}</td>
+                    <td>{{ e.description }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No events found.</p>
+    {% endif %}
+</body>
+</html>
