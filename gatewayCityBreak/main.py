@@ -3,8 +3,8 @@ import requests
 
 app = Flask('gateway_service')
 
-EVENTS_SERVICE_URL = 'http://localhost:5000/event'
-WEATHER_SERVICE_URL = 'http://localhost:5001/weather'
+EVENTS_SERVICE_URL = 'http://172.17.0.2:5000/event'
+WEATHER_SERVICE_URL = 'http://172.17.0.2:5001/weather'
 
 
 @app.route('/')

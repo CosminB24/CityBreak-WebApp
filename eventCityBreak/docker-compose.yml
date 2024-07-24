@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  citybreak-db:
+    image: "mysql"
+    environment:
+    - MYSQL_ROOT_PASSWORD=abc123
+    - MYSQL_USER=citybreak
+    - MYSQL_PASSWORD=abc123
+    - MYSQL_DATABASE=citybreak
+    expose:
+    - 3306
+#    networks:
+#    - backend
+  events:
+    build: events #folderul in care se afla .py
+    environment:
+    - DB_HOST=citybreak-db
+    - DB_USER=citybreak
+    - DB_PASSWORD=abc123
+    - HOST=0.0.0.0
+    - PORT=5000
+    ports:
+    - 5000:5000
+#    networks:
+#    - backend
+    depends_on:
+    - citybreak-db
+
+#networks:
+#  backend:
+#    driver: bridge
+#    name: backend-network
