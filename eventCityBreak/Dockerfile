@@ -6,11 +6,11 @@ ENV DB_PASSWORD=abc123
 ENV PORT=5000
 ENV HOST=0.0.0.0
 
-ADD . /CityBreakDemonstration/events
-WORKDIR /CityBreakDemonstration/events
+ADD . /Project/events
+WORKDIR /Project/events
 
 RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python", "main.py"]
+CMD ["python", "app.py"]

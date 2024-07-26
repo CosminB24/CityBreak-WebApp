@@ -1,6 +1,17 @@
 Flask
+Flask-RESTful
+requests
+SQLAlchemy
+mysqlclient
+Flask-session
+Flask-SQLAlchemy
+WTForms
+Flask-WTF
+flask-login
+Flask
 Flask-session
 SQLAlchemy
 Flask-SQLAlchemy
 mysqlclient
 Flask-RESTful
+email-validator

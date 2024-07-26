@@ -1,0 +1,26 @@
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="utf=8">
+            {% block head %} {% endblock %}
+            <style>
+                body{
+                    font-family: Helvetica;
+                    }
+            </style>
+        </head>
+
+        <body>
+
+            <header style="background-color: yellow">
+                HEADER<br>
+            </header>
+            <br>
+            <div class="page_content_wrap">
+                {% block content %} {% endblock %}
+            </div>
+            <footer style="background-color: #100034">
+                <div>This is the footer</div>
+            </footer>
+        </body>
+    </html>

@@ -1,0 +1,75 @@
+version: '3.9'
+
+services:
+  redis-weather:
+    image: redis
+    networks:
+      - backend
+  auth-db:
+    image: "mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=abc123
+      - MYSQL_USER=auth
+      - MYSQL_PASSWORD=abc123
+      - MYSQL_DATABASE=auth
+    expose:
+      - 3306
+    networks:
+      - backend
+
+
+  citybreak-db:
+    image: "mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=abc123
+      - MYSQL_USER=citybreak
+      - MYSQL_PASSWORD=abc123
+      - MYSQL_DATABASE=citybreak
+    expose:
+      - 3306
+    networks:
+      - backend
+  weather:
+    build: Weather
+    environment:
+      - REDIS_HOST=redis-weather
+    ports:
+      - 5001:5000
+    networks:
+      - backend
+    depends_on:
+      - redis-weather
+  events:
+    build: Events
+    environment:
+      - DB_HOST=citybreak-db
+      - DB_USER=citybreak
+      - DB_PASSWORD=abc123
+      - HOST=0.0.0.0
+      - PORT=5000
+    expose:
+      - 5000
+    networks:
+      - backend
+    depends_on:
+      - citybreak-db
+  gateway:
+    build: gateway
+    environment:
+      - EVENTS_SERVICE_URL=http://events:5000/events
+      - WEATHER_SERVICE_URL=http://weather:5000/weather
+      - DB_HOST=auth-db
+      - DB_USER=auth
+      - DB_PASSWORD=abc123
+    networks:
+      - backend
+    ports:
+      - 8080:5000
+    depends_on:
+      - weather
+      - events
+
+networks:
+  backend:
+    driver: bridge
+    name: backend-network
